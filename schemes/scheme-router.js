@@ -6,10 +6,12 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   Schemes.find()
-  .then(schemes => {
-    res.json(schemes);
+  .then(response => {
+    console.log(response); 
+    res.json(response);
   })
   .catch(err => {
+    console.log(err); 
     res.status(500).json({ message: 'Failed to get schemes' });
   });
 });
